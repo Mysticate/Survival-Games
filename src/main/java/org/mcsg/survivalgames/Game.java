@@ -796,6 +796,7 @@ public class Game {
 		saveInv(p);
 		clearInv(p);
 		p.teleport(SettingsManager.getInstance().getSpawnPoint(gameID, 1).add(0, 10, 0));
+		p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, <-1>, <1>));
 
 		HookManager.getInstance().runHook("PLAYER_SPECTATE", "player-"+p.getName());
 
@@ -822,6 +823,7 @@ public class Game {
 			}
 		}
 		restoreInv(p);
+		clearPotionEffects(p);
 		p.setAllowFlight(false);
 		p.setFlying(false);
 		p.setFallDistance(0);
